@@ -1,0 +1,5 @@
+fastapi
+qrcode
+aiofiles
+python-jwt
+pillow
