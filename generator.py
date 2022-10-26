@@ -1,36 +1,58 @@
 import qrcode
 from PIL import Image, ImageDraw, ImageFont
 
-from jwt import get_jwt
- 
 import database as db
 
 
-def generate():
+def generate(name,roll):
     data = db.get_data()
 
     # open template certificate image
-    cert_img = Image.open("gfg-660x249.png")    
+    cert_img = Image.open("tem_cert.jpg")
 
     for r in data:
+
+        if r[1] == name:
+            
             lis = r
-            #temp_qr = open(f'{r[0]}qr.png',"rb")
             temp_cert = cert_img.copy()
-            token = get_jwt(r)
-            print(token)
-            tem_qr = qr = qrcode.QRCode(version = 1)
-            #tem_qr.add_data(f'http://verify.dhatvika.in/{token}',optimize=0)
-            tem_qr.add_data("hello worlds")
+            
+            tem_qr = qr = qrcode.QRCode(version=1)
+            tem_qr.add_data(f'http://verify.dhatvika.in/{name}/{roll}',optimize=0)
+            
+
+
+
+
+
+
+            # Call draw Method to add 2D graphics in an image
+            I1 = ImageDraw.Draw(temp_cert)
+            
+            # Custom font style and font size
+            #myFont = ImageFont.truetype('FreeMono.ttf', 65)
+            
+            # Add Text to an image
+            I1.text((300, 370), name,  fill =(255, 0, 0))
+            
+            
+            
+            # Save the edited image
+            temp_cert.save("temp/car2.png")
+
+
+
+            
             tem_qr.make(fit=True)
-            qr_img = tem_qr.make_image(fill_color='black',back_color='white')
+            qr_img = tem_qr.make_image(fill_color='black', back_color='white')
 
             qr_img.save(f'temp/qr/{lis[0]}qr.png')
 
-            qr_img  = Image.open(f'temp/qr/{lis[0]}qr.png')
+            qr_img = Image.open(f'temp/qr/{lis[0]}qr.png')
 
+            temp_cert = Image.open("temp/car2.png")
             temp_cert.paste(qr_img)
-            
 
-            
+            temp_cert.save(f'temp/cert/{lis[0]}cert.png', quality=100)
 
-            temp_cert.save(f'temp/cert/{lis[0]}cert.png',quality=95)
+            return f'{lis[0]}cert.png'

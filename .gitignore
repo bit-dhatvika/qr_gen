@@ -1,7 +1,8 @@
 #test related file
+.idea/
 
-temp/
 venv/
+temp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
