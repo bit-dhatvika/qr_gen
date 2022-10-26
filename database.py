@@ -3,7 +3,7 @@ def get_data():
         data = []
         lines = f.readlines()
         for line in lines:
-            temp = line.split()
+            temp = line.split(",")
             data.append(temp)
 
         return data

@@ -1,3 +1,7 @@
-1 tabish tech
-2 ashish cocon
-3 nitesh alum
+1,Tabish Hassan,tabishhassan1oo@gmail.com,
+2,Sajan Kumar Das,sajankumardas0000@gmail.com,
+3,Raunak Rawani,raunakrawani321@gmail.com,
+4,Achla Roy,royachla@gmail.com,
+5,Ankit Kumar,ranchiankitkumar@gmail.com,
+6,D Raunak,raunakdwivedi4846@gmail.com,
+7,Badal kumar Singh,jpbadalsingh8899@gmail.com,
