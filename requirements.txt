@@ -1,5 +1,4 @@
 fastapi
 qrcode
-aiofiles
-python-jwt
+uvicorn
 pillow
