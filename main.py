@@ -12,6 +12,7 @@ async def verify_qr(sr:int, email:str):
     veri_url = verifier.verify(sr)
     if veri_url is not None:
         response = RedirectResponse(url='/certs/'+veri_url)
+        return response
 
 @app.get("/test/v1/")
 async def gen_qr(email: str):

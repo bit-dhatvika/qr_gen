@@ -10,7 +10,7 @@ def make_certi(lis):
             temp_cert = cert_img.copy()
 
             tem_qr = qr = qrcode.QRCode(version=1)
-            tem_qr.add_data(f'http://51.11.179.82/verify/v1/?sr={lis[0]}&email={lis[2]}', optimize=0)
+            tem_qr.add_data(f'http://51.11.179.82:8000/verify/v1/?sr={lis[0]}&email={lis[2]}', optimize=0)
 
             # Call draw Method to add 2D graphics in an image
             I1 = ImageDraw.Draw(temp_cert)
